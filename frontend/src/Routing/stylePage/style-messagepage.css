@@ -1,0 +1,119 @@
+.messangerPage {
+    display: flex;
+    flex-direction: row;
+    height: auto;
+    width: 98vw;
+}
+
+.messanger__content {
+    height: auto;
+    width: 100%;
+}
+
+.messanger-header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 7vh;
+    width: 100%;
+}
+.messanger-header span {
+    font-size: 1.7em;
+}
+.messanger-header img {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+.messanger-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    overflow-y: scroll;
+    height: 80vh;
+    width: 100%;
+
+}
+.messanger-useablity {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 11vh;
+    width: 100%;
+    -webkit-box-shadow: 0px 1px 8px 3px rgba(58, 66, 87, 0.2);
+    -moz-box-shadow: 0px 1px 8px 3px rgba(58, 66, 87, 0.2);
+    box-shadow: 0px 1px 8px 3px rgba(58, 66, 87, 0.2);
+}
+
+.file{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 7vh;
+    width: 7%;
+
+}
+.file img{
+    height: 70%;
+    width: 70%;
+    object-fit: contain;
+    transition: 0.5s ease;
+    cursor: pointer;
+}
+.file img:hover{
+    height: 75%;
+    width: 75%;
+    object-fit: contain;
+    transition: 0.5s ease;
+}
+.message{
+    height: 9vh;
+    width: 60%;
+    outline: none;
+    border: none;
+    resize: none;
+    font-size: 1.5em;
+    border-radius: 10px;
+    padding: 10px;
+    transition: 0.5s ease;
+}
+
+.message:focus {
+    -webkit-box-shadow: 0px 1px 8px 3px rgba(58, 66, 87, 0.2);
+    -moz-box-shadow: 0px 1px 8px 3px rgba(58, 66, 87, 0.2);
+    box-shadow: 0px 1px 8px 3px rgba(58, 66, 87, 0.2);
+    transition: 0.5s ease;
+}
+
+.messageContent__block {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: auto;
+    min-height: 10vh;
+    width: 100%;
+    background-color: lightgrey;
+}
+
+.messageContent__block_author {
+    height: 3vh;
+    width: 100%;
+    font-size: 1.2em;
+    font-weight: 700;
+}
+.messageContent__block_body {
+    height: 3vh;
+    width: 100%;
+    font-size: 1.5em;
+
+}
+.messageContent__block_date {
+    height: 3vh;
+    width: 100%;
+    font-size: 1em;
+}
+
+

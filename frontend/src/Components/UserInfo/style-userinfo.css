@@ -1,0 +1,74 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap");
+
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: auto;
+  min-height: 85vh;
+  width: 50vh;
+  min-width: 350px;
+  background: rgb(255, 255, 255);
+  background: linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(223, 223, 223, 1) 25%,
+    rgba(226, 226, 226, 1) 82%,
+    rgba(255, 255, 255, 1) 100%
+  );
+}
+
+.userinfo__avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+  width: 100px;
+  min-width: 200px;
+  border-radius: 200px;
+  background-color: #fff;
+}
+
+.userinfo__field {
+  font-size: 1em;
+  font-family: "Rubik", sans-serif;
+  letter-spacing: 2px;
+  color: grey;
+}
+.userinfo__username {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 100px;
+  min-width: 200px;
+}
+
+.userinfo__username__item {
+  font-size: 2em;
+  font-family: "Rubik", sans-serif;
+}
+.userinfo__email {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 100px;
+  min-width: 200px;
+}
+
+.userinfo__email__item {
+  font-size: 2em;
+  font-family: "Rubik", sans-serif;
+}
+
+.hr-userinfo {
+  margin: -50px auto 10px;
+  padding: 0;
+  height: 50px;
+  border: none;
+  width: 50px;
+  border-bottom: 2px solid grey;
+  transition: all 1s;
+}

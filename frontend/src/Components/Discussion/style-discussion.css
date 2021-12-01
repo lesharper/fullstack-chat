@@ -1,0 +1,122 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap");
+
+.discussion {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  height: auto;
+  min-height: 85vh;
+  width: 100%;
+}
+
+.discussion__search__block {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 25%;
+  width: 100%;
+}
+
+.discussion__search {
+  padding: 0 50px 0 50px;
+  font-size: 1em;
+  height: 50px;
+  width: 60%;
+  border-radius: 50px;
+  background-color: #fff;
+  border: none;
+  -webkit-box-shadow: 1px 3px 5px 3px rgba(58, 66, 87, 0.2);
+  -moz-box-shadow: 1px 3px 5px 3px rgba(58, 66, 87, 0.2);
+  box-shadow: 1px 3px 5px 3px rgba(58, 66, 87, 0.2);
+}
+
+.discussion__content {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+  height: auto;
+  min-height: 60vh;
+}
+
+.discussion__list-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  height: auto;
+  background-color: #f0ddbc;
+  width: 50vw;
+}
+
+.discission__list-container__title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 50px 0 50px;
+  height: 75px;
+  width: 98%;
+}
+
+.main__title-text {
+  font-size: 1.3em;
+}
+
+.item__title_btn-add {
+  position: relative;
+  cursor: pointer;
+}
+.item__title_btn-add:before {
+  content: "+";
+  color: #3a4257;
+  font-size: 50px;
+  top: -170px;
+  left: 350px;
+  transition: all 0.5s ease;
+}
+.item__title_btn-add:hover:before {
+  color: darkblue;
+}
+
+.discussion__main_btn-add {
+  height: 10vh;
+  width: 10vw;
+}
+
+.hr-discussion {
+  margin: -50px auto 10px;
+  padding: 0;
+  height: 50px;
+  border: none;
+  width: 90%;
+  border-bottom: 2px solid grey;
+  transition: all 1s;
+}
+
+.discussion__modal_input {
+  font-size: 1em;
+  font-family: "Rubik", sans-serif;
+  height: 45px;
+  padding: 0 50px 0 50px;
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #000;
+}
+
+.modal__add-btn {
+  font-size: 1em;
+  font-family: "Rubik", sans-serif;
+  height: 40px;
+  width: 250px;
+  background-color: darkseagreen;
+}
+
+.form__add-discussion {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
+  height: 150px;
+  width: 500px;
+}

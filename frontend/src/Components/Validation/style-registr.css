@@ -1,0 +1,85 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap");
+
+.validation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+  font-family: "Rubik", sans-serif;
+}
+
+.validation__title {
+  font-family: "Rubik", sans-serif;
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+
+.validation__form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: auto;
+  width: 90vw;
+}
+
+.validation__form__item {
+  padding: 15px;
+  font-size: 1em;
+  width: 450px;
+  height: 7vh;
+  font-family: "Rubik", sans-serif;
+  border-radius: 15px;
+  background-color: #fafafa;
+  border: none;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+  transition: 0.3s box-shadow;
+
+  margin-bottom: 10px;
+}
+
+.validation__form__item:hover {
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+}
+
+.validation__form__button {
+  font-family: "Rubik", sans-serif;
+  font-size: 1em;
+  background: orange;
+  width: 450px;
+  height: 5vh;
+}
+
+.validation__form__button_uf {
+  margin-bottom: 10px;
+  border-radius: 25px;
+  font-family: "Rubik", sans-serif;
+  font-size: 1em;
+  color: #fff;
+  background: #3a4257;
+  width: 450px;
+  height: 5vh;
+}
+
+input {
+  outline: none;
+}
+
+.error {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  width: 550px;
+  height: 3vh;
+  color: red;
+}
+
+.success {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  font-size: 1em;
+  width: 550px;
+  height: 3vh;
+  color: green;
+}

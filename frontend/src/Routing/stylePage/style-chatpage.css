@@ -1,0 +1,6 @@
+.chatPage {
+  display: flex;
+  flex-direction: row;
+  height: auto;
+  width: 99vw;
+}
