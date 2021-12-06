@@ -1,12 +1,10 @@
 .messangerPage {
     display: flex;
     flex-direction: row;
-    height: auto;
     width: 98vw;
 }
 
 .messanger__content {
-    height: auto;
     width: 100%;
 }
 
@@ -92,7 +90,6 @@
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    height: auto;
     min-height: 10vh;
     width: 100%;
     background-color: lightgrey;

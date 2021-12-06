@@ -19,7 +19,7 @@ const Header = () => {
             </li>
           ) : (
             <li className="header__nav__menu__item">
-              <a href="/chat">Общение</a>
+              <Link to="/chat">Общение</Link>
               <hr className="hr-shelf"></hr>
             </li>
           )}

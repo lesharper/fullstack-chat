@@ -8,18 +8,18 @@ export const registration = async (
   setIsRegister,
   username,
   email,
-  login,
-  password
+  password,
+  avatar
 ) => {
   e.preventDefault();
   try {
-    await axios
-      .post(`/api/registr`, {
-        username,
-        email,
-        login,
-        password,
-      })
+    const data = new FormData()
+    data.append("username",username)
+    data.append("email",email)
+    data.append("password",password)
+    data.append("avatar",avatar)
+
+    await axios.post(`/api/registr`, data)
       .then(res => {
         setAnswer(res.data.message);
         setIsRegister(res.data.message === "Успех! Аккаунт создан");
@@ -29,15 +29,14 @@ export const registration = async (
   }
 };
 
-export const authorization = async (e, setAnswer, setIsLogin, username, email, login, password) => {
+export const authorization = async (e, setAnswer, setIsLogin, username, email, password) => {
   try {
     e.preventDefault();
     await axios
       .post(`/api/login`, {
         username,
         email,
-        login,
-        password,
+        password
       })
       .then(res => {
         setAnswer(res.data.message);
@@ -46,6 +45,7 @@ export const authorization = async (e, setAnswer, setIsLogin, username, email, l
   } catch (e) {
     alert(e);
   }
+  window.location.reload()
 };
 
 export const authentication = async (setIsAuth, setUsernameData, setEmail, setId) => {
@@ -58,6 +58,7 @@ export const authentication = async (setIsAuth, setUsernameData, setEmail, setId
       setId(user.id);
     }
   });
+
 };
 
 export const logout = async setIsAuth => {
@@ -65,4 +66,11 @@ export const logout = async setIsAuth => {
     const { isAuth } = res.data;
     setIsAuth(isAuth);
   });
+  window.location.reload()
 };
+
+export const unload = async  setAvatar => {
+  await axios.get("/api/unload").then(res => {
+    setAvatar("/api/unload")
+  })
+}

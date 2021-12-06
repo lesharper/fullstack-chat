@@ -1,17 +1,25 @@
 import "./style-userinfo.css";
-import React, { useContext } from "react";
+import defaultAvatar from "../images/default_avatar.svg"
+
+import React, {useContext, useEffect, useState} from "react";
 import { UsernameContext } from "../../Context/Context";
 import { EmailContext } from "../../Context/Context";
 import { IdContext } from "../../Context/Context";
+import {unload} from "../../Actions/user";
 
 const UserInfo = () => {
-  const { usernameData, setUsernameData } = useContext(UsernameContext);
-  const { email, setEmail } = useContext(EmailContext);
-  const { id, setId } = useContext(IdContext);
-    console.log("Im UserInfo")
+
+  const { usernameData } = useContext(UsernameContext);
+  const { email } = useContext(EmailContext);
+  const { id } = useContext(IdContext);
+  const [avatar, setAvatar] = useState(null)
+
+    useEffect(() => {
+        unload(setAvatar)
+    }, [])
   return (
     <div className="userinfo">
-      <div className="userinfo__avatar">{id}</div>
+      <img src={avatar ? avatar : defaultAvatar} alt="defaultAvatar"  className="userinfo__avatar"/>
       <div className="userinfo__username">
         <span className="userinfo__field">Имя пользователя</span>
         <hr className="hr-userinfo"></hr>

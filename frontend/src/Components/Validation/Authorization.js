@@ -25,7 +25,6 @@ const Authorization = () => {
     maxLength: 40,
     isEmail: false,
   });
-  const login = useInput("", { isEmpty: true, minLength: 3, maxLength: 30 });
   const password = useInput("", { isEmpty: true, minLength: 7 });
 
   return (
@@ -68,22 +67,6 @@ const Authorization = () => {
           placeholder="Введите почту..."
         />
 
-        {login.isDirty && login.isEmpty && <div className="error">Поле не может быть пустым</div>}
-        {login.isDirty && login.minLengthError && <div className="error">Некорректная длина</div>}
-        {login.isDirty && login.maxLengthError && (
-          <div className="error">Слишком длинный логин</div>
-        )}
-
-        <input
-          onChange={e => login.onChange(e)}
-          onBlur={e => login.onBlur(e)}
-          value={login.value}
-          name="login"
-          type="text"
-          className="validation__form__item"
-          placeholder="Введите логин..."
-        />
-
         {password.isDirty && password.isEmpty && (
           <div className="error">Поле не может быть пустым</div>
         )}
@@ -101,7 +84,7 @@ const Authorization = () => {
         />
         <button
           disabled={
-            !email.inputValid || !username.inputValid || !login.inputValid || !password.inputValid
+            !email.inputValid || !username.inputValid || !password.inputValid
           }
           type="submit"
           className="validation__form__button"
@@ -112,7 +95,6 @@ const Authorization = () => {
               setIsLogin,
               username.value,
               email.value,
-              login.value,
               password.value
             )
           }

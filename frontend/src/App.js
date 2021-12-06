@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useMemo} from "react";
+import React, {useState, useEffect} from "react";
 import "./App.css";
 
 import HomePage from "./Routing/HomePage";
@@ -16,20 +16,15 @@ import {UsernameContext} from "./Context/Context";
 import {AuthContext} from "./Context/Context";
 import {EmailContext} from "./Context/Context";
 import {IdContext} from "./Context/Context";
-import {SocketContext} from "./Context/Context";
 
-import io from "socket.io-client";
 
 function App() {
-    const socket = io.connect("http://localhost:5000")
     const [isAuth, setIsAuth] = useState(false);
     const [usernameData, setUsernameData] = useState(null);
     const [email, setEmail] = useState(null);
     const [id, setId] = useState(null);
-    const [socketContext, setSocketContext] = useState(socket)
 
-    useMemo(() => {
-        console.log("Ауе")
+    useEffect(() => {
         authentication(setIsAuth, setUsernameData, setEmail, setId);
     }, []);
 
@@ -39,7 +34,6 @@ function App() {
                 <AuthContext.Provider value={{isAuth, setIsAuth}}>
                     <EmailContext.Provider value={{email, setEmail}}>
                         <IdContext.Provider value={{id, setId}}>
-                            <SocketContext.Provider value={{socketContext, setSocketContext}}>
                                 <Routes>
                                     <Route path="/" element={<Layout/>}>
                                         <Route exact path="/" element={<HomePage/>}/>
@@ -52,7 +46,6 @@ function App() {
                                         <Route path="*" element={<NotFoundPage/>}/>
                                     </Route>
                                 </Routes>
-                            </SocketContext.Provider>
                         </IdContext.Provider>
                     </EmailContext.Provider>
                 </AuthContext.Provider>
