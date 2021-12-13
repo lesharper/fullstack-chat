@@ -10,7 +10,7 @@ const Discussion = () => {
   const [modalActive, setModalActive] = useState(false);
   const [search, setSearch] = useState("");
   const title = useInput("", { isEmpty: true, minLength: 2, maxLength: 25 });
-
+  const [poster, setPoster] = useState(null)
   const search_query = e => {
     e.preventDefault();
 
@@ -19,7 +19,7 @@ const Discussion = () => {
   };
 
   const create_discussion = e => {
-    createDiscussion(e, title.value, setModalActive);
+    createDiscussion(e, title.value, poster, setModalActive);
     title.reset();
   };
 
@@ -32,7 +32,6 @@ const Discussion = () => {
           className="discussion__search"
           value={search}
           onChange={e => setSearch(e.target.value)}
-          on
         ></input>
       </form>
 
@@ -68,6 +67,15 @@ const Discussion = () => {
             onBlur={e => title.onBlur(e)}
             onChange={e => title.onChange(e)}
           ></input>
+          <label>
+            Загрузить аватар
+            <input
+                type="file"
+                name="poster"
+                className="discussion__modal_input-file"
+                onChange={e => setPoster(e.target.files[0])}
+            />
+          </label>
           <button
             disabled={!title.inputValid}
             className="modal__add-btn"

@@ -7,7 +7,7 @@ const path = require("path")
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, "./avatars");
+    cb(null, path.join(__dirname, '/avatars/'));
   },
   filename: (req, file, cb) => {
     cb(null, Date.now() + "-" + file.originalname);
@@ -79,9 +79,7 @@ router.post("/login", async (req, res) => {
 router.get('/unload', async (req, res) => {
   const idUser = req.session.user.id;
   const avatar = await db.query("SELECT image FROM users WHERE id = $1", [idUser])
-  const avatarPath = path.relative(__dirname, avatar.rows[0].image)
-
-  res.sendFile(path.join(`${__dirname}`,`${avatarPath}`))
+  res.sendFile(avatar.rows[0].image)
 });
 
 module.exports = router;

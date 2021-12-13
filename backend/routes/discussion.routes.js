@@ -1,6 +1,30 @@
 const Router = require("express");
 const db = require("../db");
+const multer = require("multer");
+const path = require("path");
 const router = new Router();
+
+
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, path.join(__dirname, '/posters/'));
+  },
+  filename: (req, file, cb) => {
+    cb(null, Date.now() + "-" + file.originalname);
+  },
+});
+
+const types = ["image/png", "image/jpeg", "image/jpg"];
+
+const fileFilter = (req, file, cb) => {
+  if (types.includes(file.mimetype)) {
+    cb(null, true);
+  } else {
+    cb(null, false);
+  }
+};
+
+const upload = multer({storage, fileFilter})
 
 router.get("/get_discussions", async (req, res) => {
   try {
@@ -35,13 +59,14 @@ router.post("/search_discussion", async (req, res) => {
   }
 });
 
-router.post("/create_discussion", async (req, res) => {
+router.post("/create_discussion", upload.single('poster'), async (req, res) => {
   try {
+    const poster = req.file
     const idUser = req.session.user.id;
     const { title } = req.body;
     const newDiscussion = await db.query(
-      `INSERT INTO discussion (title,creatorid) values ($1,$2) RETURNING id`,
-      [title, idUser]
+      `INSERT INTO discussion (title,creatorid,image) values ($1,$2,$3) RETURNING id`,
+      [title, idUser, poster.path]
     );
     const idDiscussion = newDiscussion.rows[0].id;
     const combined = await db.query(
@@ -63,5 +88,19 @@ router.post("/delete_discussion", async (req, res) => {
     console.log(error);
   }
 });
+
+router.post("/join_discussion", async(req, res) => {
+  try {
+    const idUser = req.session.user.id;
+    const {id} = req.body
+    const userCheck = await db.query("SELECT * from users_discussion WHERE userId = $1 AND discussionId = $2", [idUser, id])
+    if(userCheck.rows.length == 0) await db.query("INSERT INTO users_discussion (userId, discussionId) values ($1, $2)", [idUser, id])
+
+    res.status(200).json({message: "Успех!"})
+  }
+  catch(error) {
+    console.log(error)
+  }
+})
 
 module.exports = router;

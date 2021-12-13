@@ -2,10 +2,13 @@ import axios from "axios";
 
 axios.defaults.withCredentials = true;
 
-export const createDiscussion = async (e, title, setModalActive) => {
+export const createDiscussion = async (e, title, poster, setModalActive) => {
   e.preventDefault();
+  const data = new FormData()
+  data.append("title", title)
+  data.append("poster", poster)
   try {
-    await axios.post("/api/create_discussion", { title }).then(res => {
+    await axios.post("/api/create_discussion", data).then(res => {
       setModalActive(false);
     });
   } catch (error) {
@@ -35,12 +38,20 @@ export const searchDiscussion = async (search, setAllDiscussion) => {
   }
 };
 
-export const deleteDiscussionForUser = async id => {
+export const deleteDiscussionForUser = async (e , id) => {
+  e.stopPropagation()
   try {
-    await axios.post("/api/delete_discussion", { id }).then(res => {
-      console.log(res);
-    });
+    await axios.post("/api/delete_discussion", { id }).then(res => {});
   } catch (error) {
     console.log(error);
   }
 };
+
+export const joinDiscussion = async (e, id) => {
+  e.stopPropagation()
+  try {
+    await axios.post("/api/join_discussion", {id}).then(res => {})
+  } catch(error) {
+    console.log(error)
+  }
+}

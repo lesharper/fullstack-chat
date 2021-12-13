@@ -11,7 +11,7 @@
 .validation__title {
   font-family: "Rubik", sans-serif;
   font-size: 2em;
-  margin-bottom: 10px;
+  margin: 5px;
 }
 
 .validation__form {
@@ -26,16 +26,19 @@
 .validation__form__item {
   padding: 15px;
   font-size: 1em;
-  width: 450px;
-  height: 7vh;
+  min-width: 23vw;
+  min-height: 7vh;
   font-family: "Rubik", sans-serif;
   border-radius: 15px;
   background-color: #fafafa;
   border: none;
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
   transition: 0.3s box-shadow;
+  margin: 5px;
+}
 
-  margin-bottom: 10px;
+.validation__form__item-file {
+  display: none;
 }
 
 .validation__form__item:hover {
@@ -46,8 +49,8 @@
   font-family: "Rubik", sans-serif;
   font-size: 1em;
   background: orange;
-  width: 450px;
-  height: 5vh;
+  min-width: 23vw;
+  min-height: 5vh;
 }
 
 .validation__form__button_uf {
@@ -58,7 +61,7 @@
   color: #fff;
   background: #3a4257;
   width: 450px;
-  height: 5vh;
+  min-height: 5vh;
 }
 
 input {
@@ -82,4 +85,19 @@ input {
   width: 550px;
   height: 3vh;
   color: green;
+}
+
+.validation__form input [type="file"] {
+  display: none;
+}
+
+.validation__form label {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-width: 23vw;
+  min-height: 7vh;
+  border: 1px dashed black;
+  margin: 5px;
 }

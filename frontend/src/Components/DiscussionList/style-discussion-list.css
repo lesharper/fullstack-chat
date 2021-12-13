@@ -1,3 +1,10 @@
+.discussion_main_block {
+  display: flex;
+  height: auto;
+  flex-direction: column;
+  background-color: red;
+}
+
 .discussion__main_item {
   margin: 5px;
   display: flex;
@@ -49,26 +56,8 @@
   content: "+";
   color: #3a4257;
   font-size: 50px;
-  top: -170px;
-  left: 350px;
   transition: all 0.5s ease;
 }
 .item__title_btn-delete:hover:before {
   color: darkred;
-}
-
-.item__title_btn-delete:hover::after {
-  text-align: center;
-  content: attr(data-title);
-  transform: rotate(-45deg);
-  position: absolute;
-  left: 80%;
-  top: -10%;
-  z-index: 1;
-  background: rgba(255, 255, 230, 0.9);
-  font-family: "Rubik", sans-serif;
-  font-size: 1em;
-  padding: 10px 20px;
-  border: 1px solid #3a4257;
-  color: #3a4257;
 }

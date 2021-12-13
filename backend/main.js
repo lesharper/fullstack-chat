@@ -1,7 +1,7 @@
 const config = require("./config/default.json");
 const secret = config.secret;
 
-const http = require("http")
+
 const express = require("express");
 const app = express();
 
@@ -12,15 +12,16 @@ const session = require("express-session");
 
 const userRouter = require("./routes/user.routes");
 const discussionRouter = require("./routes/discussion.routes");
-const {Server} = require("socket.io")
 
+const path = require("path");
+
+const server = require('http').createServer(app)
 app.use(corsMiddleware);
 app.use(express.json());
-app.use("./avatars",express.static(`${__dirname}` + "/avatars"))
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser(secret));
 
-app.use(express.static(`${__dirname}/avatars`));
+app.use(express.static(path.join(`${__dirname}/routes/avatars`)));
 app.use(
   session({
     key: "username",
@@ -33,11 +34,22 @@ app.use(
   })
 );
 
+const io = require('socket.io')(server, {
+    cors: {
+        origin: '*'
+    }
+})
+
+io.on('connection', socket => {
+    socket.on('message', ({ name, message }) => {
+        io.emit('message', { name, message })
+    })
+})
 
 app.use("/api", userRouter);
 app.use("/api", discussionRouter);
 
 
-app.listen(config.serverPort, () => {
+server.listen(config.serverPort, () => {
   console.log(`SERVER HAS BEEN STARTED ${config.serverPort}`);
 });

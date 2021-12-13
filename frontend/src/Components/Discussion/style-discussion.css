@@ -99,16 +99,32 @@
   font-family: "Rubik", sans-serif;
   height: 45px;
   padding: 0 50px 0 50px;
-  width: 100%;
+  width: 23vw;
   border: none;
   border-bottom: 1px solid #000;
 }
 
+.discussion__modal_input-file {
+  display: none;
+}
+
+.form__add-discussion label {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-width: 23vw;
+  min-height: 7vh;
+  border: 1px dashed black;
+  margin: 5px;
+}
+
+
 .modal__add-btn {
   font-size: 1em;
   font-family: "Rubik", sans-serif;
-  height: 40px;
-  width: 250px;
+  min-height: 3vh;
+  min-width: 23vw;
   background-color: darkseagreen;
 }
 

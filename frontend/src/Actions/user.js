@@ -69,7 +69,7 @@ export const logout = async setIsAuth => {
   window.location.reload()
 };
 
-export const unload = async  setAvatar => {
+export const unloadAvatar = async setAvatar => {
   await axios.get("/api/unload").then(res => {
     setAvatar("/api/unload")
   })

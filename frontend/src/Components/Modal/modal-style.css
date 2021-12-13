@@ -27,7 +27,8 @@
   background-color: white;
   transform: scale(0.5);
   transition: 0.4s all;
-  width: 35vw;
+  min-height: 25vh;
+  min-width: 35vw;
 }
 
 .modal__content.active {
