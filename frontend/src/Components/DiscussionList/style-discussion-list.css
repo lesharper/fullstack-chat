@@ -24,13 +24,12 @@
   transition: 0.2s ease;
 }
 
-.discussion__main_item__avatar {
+.discussion__main_item__poster {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100px;
-  width: 100px;
-  background-color: lightgray;
+  height: 70px;
+  width: 70px;
   border-radius: 100px;
 }
 

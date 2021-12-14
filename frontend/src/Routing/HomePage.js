@@ -5,10 +5,10 @@ import Contents from "../Components/Contents/Contents.js";
 
 const HomePage = () => {
   return (
-    <div>
+    <>
       <Promote />
       <Contents />
-    </div>
+    </>
   );
 };
 

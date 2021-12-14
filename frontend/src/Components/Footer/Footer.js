@@ -2,10 +2,24 @@ import React from "react";
 import "./style-footer.css";
 
 const Footer = () => {
-  return (
-    <div className="footer">
-      <span>2021</span>
-    </div>
-  );
+    return (
+        <div className="footer">
+            <div>
+                <span>Использованные технологии:</span>
+                <li>Библиотека React.js для клиентской части.</li>
+                <li>Node.js - для серверной части.</li>
+                <li>Веб-фреймворк Express.js - для улучшения работы с сервером.</li>
+                <li>Библиотека Socket.IO - настройка и создание сокетного подключения.</li>
+
+            </div>
+
+            <div>
+                <span>Факты о сайте:</span>
+                <li>Этот сайт был создан для курсового проекта.</li>
+                <li>Сервис не преследует никаких коммерческих целей - автор просто экспериментирует.</li>
+                <li>Данная информационная система, не распространяет информацию о данных пользователя.</li>
+            </div>
+        </div>
+    );
 };
 export default Footer;

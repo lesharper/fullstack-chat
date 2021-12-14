@@ -1,0 +1,67 @@
+.block_users {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
+    min-height: 20vh;
+    width: 100%;
+
+}
+
+.delete_user-btn {
+    display: flex;
+    padding: 10px;
+    justify-content: center;
+    width: 50%;
+    cursor: pointer;
+    transition: 0.5s ease;
+}
+
+.delete_user-btn:hover {
+    color: darkred;
+    transition: 0.5s ease;
+}
+
+.block_users_info {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 70%;
+    margin: 5px;
+    background-color: lightgray;
+    font-size: 1.2em;
+}
+
+.block_users_info-item{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 5vh;
+    width: 50%;
+}
+
+
+hr {
+    border: none;
+    border-bottom: 2px solid #d9d9d9;;
+    width: 100%;
+}
+
+.delete_discussion-btn {
+    height: 3vh;
+    width: 70%;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    background-color: #000;
+    color: #fff;
+    transition: 0.5s ease;
+    border-radius: 7px;
+}
+
+.delete_discussion-btn:hover {
+    height: 3vh;
+    width: 70%;
+    background-color: darkred;
+    transition: 0.5s ease;
+}

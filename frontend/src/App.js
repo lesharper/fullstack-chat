@@ -41,7 +41,7 @@ function App() {
                                         <Route path="/login" element={<LoginPage/>}/>
 
                                         <Route path="/chat" element={<ChatPage/>}/>
-                                        <Route path="/chat/:title" element={<MessangerPage/>}/>
+                                        <Route path="/chat/:id" element={<MessangerPage/>}/>
 
                                         <Route path="*" element={<NotFoundPage/>}/>
                                     </Route>

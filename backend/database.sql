@@ -6,6 +6,13 @@ CREATE TABLE  users (
   avatar VARCHAR(300) NOT NULL
 );
 
+CREATE TABLE creators_discussion (
+    creatorId INTEGER,
+    discussionId INTEGER NOT NULL,
+     FOREIGN KEY (creatorId) REFERENCES users (id) ON DELETE CASCADE,
+     FOREIGN KEY (discussionId) REFERENCES discussion (id) ON DELETE CASCADE
+);
+
 CREATE TABLE discussion (
   id BIGSERIAL PRIMARY KEY,
   title VARCHAR(50) NOT NULL,
@@ -34,3 +41,8 @@ CREATE TABLE users_discussion (
 
 psql \! chcp 1251
 set client_encoding='win1251';
+
+SELECT  discussion.title, users.username FROM  users_discussion
+JOIN  users ON users_discussion.userid = users.id
+JOIN discussion ON users_discussion.discussionId = discussion.id;
+

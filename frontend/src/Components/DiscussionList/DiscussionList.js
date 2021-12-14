@@ -14,7 +14,7 @@ const DiscussionList = props => {
     props.search
       ? searchDiscussion(props.search, setAllDiscussion)
       : getDiscussion(setAllDiscussion);
-  }, [props.search, allDiscussion]);
+  }, [allDiscussion]);
 
   const discussion = allDiscussion.map(element => {
     return (
@@ -24,14 +24,13 @@ const DiscussionList = props => {
         data-key={element.id}
         onClick={(e) => joinDiscussion(e, element.id)}
       >
-        <div className="discussion__main_item__avatar"><img src={default_poster} alt="default_poster"/></div>
-        <Link className="discussion__main_item__name" to={`/chat/${element.title}`}>
-
+        <div className="discussion__main_item__poster"><img src={default_poster} alt="default_poster"/></div>
+        <Link className="discussion__main_item__name" to={`/chat/${element.id}`}>
           <span className="item__title_text">{element.title}</span>
         </Link>
         <div
           data-title="Удалить беседу"
-          class="item__title_btn-delete"
+          className="item__title_btn-delete"
           onClick={(e) => deleteDiscussionForUser(e, element.id)}
         ></div>
       </div>
